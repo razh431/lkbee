@@ -1,0 +1,65 @@
+Last login: Sun Feb 16 20:56:01 on ttys006
+dhcp-rhodes-2517:rachelResearch rachelzhou$ python3
+Python 3.6.5 |Anaconda, Inc.| (default, Apr 26 2018, 08:42:37) 
+[GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import numpy as np
+>>> a = [[1,2,3],[4,5,6],[7,8,9]]
+>>> a
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> b = np.array(a)
+>>> b
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+>>> np.argmin(b)
+0
+>>> np.argmin(b, axis=1)
+array([0, 0, 0])
+>>> np.argmin(b, axis=2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/anaconda3/lib/python3.6/site-packages/numpy/core/fromnumeric.py", line 1068, in argmin
+    return _wrapfunc(a, 'argmin', axis=axis, out=out)
+  File "/anaconda3/lib/python3.6/site-packages/numpy/core/fromnumeric.py", line 52, in _wrapfunc
+    return getattr(obj, method)(*args, **kwds)
+numpy.core._internal.AxisError: axis 2 is out of bounds for array of dimension 2
+>>> np.matrix.argmin(b)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/anaconda3/lib/python3.6/site-packages/numpy/matrixlib/defmatrix.py", line 848, in argmin
+    return N.ndarray.argmin(self, axis, out)._align(axis)
+AttributeError: 'numpy.int64' object has no attribute '_align'
+>>> b
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+>>> b = np.matrix(a)
+>>> b
+matrix([[1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]])
+>>> np.matrix.argmin(b)
+0
+>>> a = [[1,2,3],[4,0,6],[7,8,9]]
+>>> b = np.matrix(a)
+>>> np.matrix.argmin(b)
+4
+>>> b.length()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'matrix' object has no attribute 'length'
+>>> len(b)
+3
+>>> c = [[1,2,3],[4,5,6],[7,8,9], [1,2,3]]
+>>> len(c)
+4
+>>> len(c[0])
+3
+>>> 5/3
+1.6666666666666667
+>>> 5//3
+1
+>>> 5/3
+1.6666666666666667
+>>> 5/3
